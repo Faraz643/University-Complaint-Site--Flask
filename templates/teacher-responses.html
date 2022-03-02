@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Your Responses </title>
+</head>
+<a href="/teacher-dashboard" style="text-decoration:none;">  <h1 style="float:left; margin-right:10px;">⮜</h1></a>
+<body style="background-color:lightgrey; background-image: linear-gradient(to right, lightblue, white, pink);">
+<center>
+
+<table border="1"  style="text-align:center;font-size: 20px; margin-top:3%;" cellspacing="10px" cellpadding="2px" width="70%;">
+    <tr>
+        <td  style="font-size:15pt; background-color: #4169e1; color:white;"  >
+           <b>COMPLAINTS</b>
+        </td>
+        <td  style="font-size:15pt; background-color: #4169e1; color:white; ">
+           <b> YOUR RESPONSE </b>
+        </td>
+    </tr >
+    {% for i  in all_complaints %}
+        {% set c = i.id %}
+        {% for f in complaint.query.filter_by(student_id=c) %}
+    <tr>
+        <td >
+            {{f.title}}
+        </td>
+        <td>
+          <b>  {{f.feedback}} </b>
+        </td>
+    </tr>
+{% endfor %}
+{% endfor %}
+</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{url_for('static', filename= 'adminstyle.css')}}">
+
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        #footer {
+            position: fixed;
+            padding: 0px 0px 0px 0px;
+            bottom: 0;
+            width: 100%;
+            height: 27px;
+            background: grey;
+            opacity: 45%;
+        }
+        </style>
+
+   </head>
+
+
+
+<body>
+ {%if current_user.is_authenticated %}
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='far fa-id-badge' ></i>
+
+      <span class="logo_name">&nbsp;Teacher Dashboard</span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-folder'></i>
+            <span class="links_name">Complaints</span>
+          </a>
+        </li>
+        <li>
+          <a href="/make-a-notice">
+              <i class='bx bxs-pencil'></i>
+            <span class="links_name">Make a Notice</span>
+          </a>
+        </li>
+          <li>
+          <a href="/your-responses">
+              <i class='bx bx-spreadsheet'></i>
+            <span class="links_name">Your Responses</span>
+          </a>
+        </li>
+          <li>
+               <a href="/your-notices">
+                    <i class='bx bx-envelope-open'></i>
+                    <span class="links_name">All Notices</span>
+               </a>
+          </li>
+        <li class="log_out">
+          <a href="/logout">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">IUL Complaints</span>
+      </div>
+
+      <div class="profile-details">
+        <span class="admin_name"><b></b> </span>
+         <b> {{current_user.name}} </b>
+      </div>
+    </nav>
+
+    <div class="home-content" >
+
+
+        {% with messages = get_flashed_messages(category_filter=["respond-complaint"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+        {% with messages = get_flashed_messages(category_filter=["notice-flash"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+        {% with messages = get_flashed_messages(category_filter=["delete-notice"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+
+        {% for i  in all_complaints %}
+        {% set c = i.id %}
+        {% for f in complaint.query.filter_by(student_id=c) %}
+
+
+{% if f.feedback == '𝘕𝘖 𝘙𝘌𝘚𝘗𝘖𝘕𝘚𝘌 𝘠𝘌𝘛 !' %}
+       <div class="col p-4 d-flex flex-column position-static" style="margin-left:18.5%;">
+
+       <div class="overview-boxes">
+
+        <div class="box" style="width:650px; background-color: #C0C0C0;">
+
+
+          <div class="right-side">
+
+            <div class="box-topic"> <center> <u> {{f.title}} </u> <sub> <span style="font-size:13.5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ~{{f.student_name}}
+                <span> </span></sub>  </center> </div> <br>
+            <div class="indicator">
+              <span class="text" style="font-size: 15px;">{{f.description}}</span>
+            </div> <br>
+
+                    <center> <a href="/respond-to-complaint/{{f.id}}">   <button class="text" style= "background-image:
+              linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);  padding: 3px 5px; text-align: center;
+               transition: 0.5s; background-size: 200% auto; color: white;  border-radius:
+                5px; display: block;   background-position: right center;color: #fff; text-decoration: none;
+                cursor:pointer; margin-right:35px;"> VIEW & RESPOND </button> </center>
+                    </a>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      </div>
+{% endif %}
+        {% endfor %}
+        {% endfor %}
+
+      </div>
+ {% else %}
+      <h1>You must login first</h1>
+     <a href="student-login"><button style="color:black; background-color:lightblue; border:2px  solid black; margin-left: 25%;" >Student Log In</button></a>
+        <a href="/teacher-login"><button style="color:black; background-color:lightblue; border:2px  solid black; margin-left: 25%;" >Teacher Log In</button></a>
+ {% endif %}
+
+<center>
+ <div id="footer" style="position: fixed; padding: 0px 0px 0px 0px;bottom: 0;width: 100%; height: 27px; background: grey"> Made By 1st Year Student For 1st Year Student <sub>(s)</sub>
+
+    </div>
+
+</center>
+</body>
+</html>
+

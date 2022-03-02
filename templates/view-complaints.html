@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title> Give Response </title>
+</head>
+<body style="background-color:lightgrey; background-image: linear-gradient(to left, lightblue, lightpink);">
+{% if complaint_data.feedback == '𝘕𝘖 𝘙𝘌𝘚𝘗𝘖𝘕𝘚𝘌 𝘠𝘌𝘛 !' %}
+<center>
+   <a href="/teacher-dashboard" style="text-decoration:none;">  <h1 style="float:left;">⮜</h1></a>
+<h1 style="color:black; border-width:1px; border-style:solid; margin-right:35%; margin-left:35%; text-shadow: 3px 2px
+ white;"> Student Complain </h1>
+<div style="background-color:white; margin-left:25%; padding-right:50px; padding-left:50px; margin-right:25%; box-shadow:
+ 10px 10px 10px black; margin-top: -1%;">
+
+<h2 style="padding-top:50px;" >{{complaint_data.title}}</h2>
+<br>
+<p style="padding-bottom:50px; ">
+ {{complaint_data.description}}
+</p>
+    <p > <center style="padding-bottom:3%;"> <i style="font-size: 16pt;"> ~{{complaint_data.student_name}} </i> </center>  </p>
+</div>
+<form method="POST" >
+    <div style="margin-top: -5px; border: 2px solid grey; margin-left: 20%; margin-right: 20%; border-radius:20%;
+     box-shadow: -10px 10px 10px black">
+        <label for="response" > <h3> <I> Your Response</I></h3> </label>
+        <textarea id="response" name="teacherresponse" style="resize:none; margin-bottom: 5%;height:120px; font-size:17px;"
+                  size="50%" width="26px" height="100px" cols="50" rows="4"  required data-validation-required-message=
+                          "Please Enter Your Response" placeholder="Give a detailed feedback"></textarea>
+            <div>
+                <input type="submit" style=" padding-bottom: 2%; margin-top: -4%; border-radius:5px; background-image:
+                 linear-gradient(to right,
+                orange, lightpink);  font-size:15px; cursor:pointer;" value="Give Response">
+            </div>
+    </div>
+</form>
+</center>
+
+
+{% else %}
+<h2><p> Error! You might have responded to this complaint</p></h2>
+{% endif %}
+</body>
+</html>

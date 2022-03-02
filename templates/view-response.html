@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Check Responses </title>
+</head>
+<a href="/student-dashboard" style="text-decoration:none;">  <h1 style="float:left; margin-right:5px;">⮜</h1></a>
+<body style="background-color:lightgrey; background-image: linear-gradient(to right, lightblue, white, pink);">
+<center>
+<table border="1"  style="text-align:center;font-size: 20px;margin-top:3%; " cellspacing="10px" cellpadding="2px" width="70%">
+    <tr>
+        <td  style="font-size:15pt; background-color: #4169e1; color:white;"  >
+           <b> YOUR COMPLAINTS </b>
+        </td>
+        <td  style="font-size:15pt; background-color: #4169e1; color:white; ">
+           <b> TEACHER RESPONSE </b>
+        </td>
+    </tr >
+    {% for complaint in view_response %}
+        <tr>
+            <td>
+                {{complaint.title}}
+            </td>
+            <td>
+              <b>  {{complaint.feedback}} </b>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</center>
+</body>
+</html>

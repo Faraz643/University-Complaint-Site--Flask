@@ -1,0 +1,128 @@
+body{
+background-color: #D2B48C;
+}
+.form{
+background-color: #008080;
+margin-right: 20%;
+padding-left: 18%;
+margin-left: 15%;
+margin-top: 15%;
+border-radius: 12px;
+box-shadow: 10px 5px 10px black;
+
+}
+
+.form1{
+background-color: #008080;
+margin-right: 20%;
+padding-left: 18%;
+margin-left: 15%;
+margin-top: 10%;
+border-radius: 12px;
+box-shadow: 10px 5px 10px black;
+
+
+}
+
+.all-roles{
+margin-top: 3%;
+padding-bottom: 3%;
+font-size: 17pt;
+}
+
+.detail-field{
+padding-top: 2%;
+
+}
+
+.pass-field{
+padding-bottom: 2%;
+padding-top: 3%;
+
+}
+
+img{
+height: 105px;
+width: 105px;
+margin-top: %;
+}
+
+.image{
+padding-left: 80%;
+}
+
+.button{
+font-size: 15pt;
+margin-left: 22%;
+}
+
+.name{
+padding-top: 3%;
+padding-bottom: 3%;
+
+}
+.teacher-enrollment{
+padding-top: 3%;
+padding-bottom: 3%;
+
+}
+.teacher-name{
+padding-top: 1%;
+padding-bottom: 4%;
+
+}
+
+.details{
+padding-top: 2%;
+margin-left: 18%;
+
+}
+
+.submit{
+margin-left: 30%;
+margin-bottom: 2%;
+font-size: 13pt;
+}
+
+.image1{
+padding-left: 25%;
+}
+
+.navbar{
+font-size: 17pt;
+margin-left: 60%;
+}
+
+a,u{
+text-decoration: none;
+}
+
+.link2{
+float: right;
+margin-top: -5%;
+margin-right: 8%;
+}
+#stud_name{
+height: 25px;
+}
+
+#stud_id{
+height: 25px;
+}
+
+#stud_pass{
+height: 25px;
+}
+
+#student_name{
+height: 25px;
+}
+#student_id{
+height: 25px;
+}
+#teacher_id{
+height: 25px;
+}
+#teacher_name{
+height: 25px;
+}

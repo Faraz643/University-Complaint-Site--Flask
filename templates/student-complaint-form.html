@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{url_for('static', filename= 'formstyle.css')}}">
+<title>Write Your Complaint</title>
+<!-- head tag -->
+</head>
+<body>
+
+<a href="/student-dashboard" style="text-decoration:none;">  <h1 style="float:left;">⮜</h1></a>
+<div class="content">
+<div class="container">
+<div class="row align-items-stretch justify-content-center no-gutters">
+<div class="col-md-7">
+<div class="form h-100 contact-wrap p-5">
+<h3 class="text-center">Query Form</h3>
+<form class="mb-5" method="post" id="contactForm" name="contactForm">
+<div class="row">
+<div class="col-md-6 form-group mb-3">
+<label for="title" class="col-form-label">Title*</label>
+<input type="text" class="form-control" name="Title" id="title" placeholder="Title"  required data-validation-required-message="Field Required!">
+</div>
+</div>
+<div class="row mb-5">
+<div class="col-md-12 form-group mb-3">
+<label for="Description" class="col-form-label">Description *</label>
+<textarea class="form-control" name="Description" id="Description" cols="30" rows="4" placeholder="Write your Issue"   required data-validation-required-message="Field Required!"></textarea>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-md-5 form-group text-center">
+<input type="submit" value="Submit" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+<span class="submitting"></span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

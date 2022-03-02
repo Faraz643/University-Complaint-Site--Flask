@@ -1,0 +1,30 @@
+*{
+  margin:0;
+  padding:0;
+  font-family:verdana;
+  font-size: 20px;
+}
+
+nav ul{
+  float: right;
+  margin-right: 100px;
+  font-size: 30px;
+  color: #000000;
+}
+
+nav ul li{
+  list-style-type: none;
+  display: inline-block;
+  transition: 0.7s all;
+}
+
+nav ul li:hover{
+  background-color:#CCFFFF;
+
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: #660033;
+  padding: 30px;
+}

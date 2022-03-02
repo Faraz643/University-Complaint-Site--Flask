@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+      <style>
+        #footer {
+            position: fixed;
+            padding: 0px 0px 0px 0px;
+            bottom: 0;
+            width: 100%;
+            height: 27px;
+            background: grey;
+            opacity: 45%;
+        }
+    </style>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{url_for('static', filename= 'adminstyle.css')}}">
+
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+
+
+<body>
+{% if current_user.is_authenticated %}
+    <div class="sidebar">
+        <div class="logo-details">
+                          <i class='far fa-id-badge'></i>
+                          <span class="logo_name">&nbsp;Student Dashboard</span>
+        </div>
+        <ul class="nav-links">
+                      <li>
+                                <a href="#" class="active">
+                                    <i class='bx bx-user'></i>
+                                    <span class="links_name">your Complaints</span>
+                                </a>
+                      </li>
+
+                       <li>
+                                  <a href="/write-complaint" c>
+                                      <i class='bx bxs-edit'></i>
+                                      <span class="links_name">Write Issue</span>
+                                  </a>
+                       </li>
+
+                       <li>
+
+                                   <a href="/teacher-responses" >
+                                      <i class="bx bx-bell"></i>
+                                      <span class="links_name">Check Responses</span>
+                                     {% with messages = get_flashed_messages(category_filter=["category1"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                         <span style="color:yellow; font-size:24pt;" >&nbsp;&nbsp;{{messages}}</span>
+                                            {% endfor %}
+                                         {% endif %}
+                                     {% endwith %}
+                                   </a>
+                       </li>
+
+                        <li>
+                                   <a href="/notice" >
+                                     <i class='bx bx-envelope-open'></i>
+                                      <span class="links_name">All Notices</span>
+                                      {% with messages = get_flashed_messages(category_filter=["category2"]) %}
+                                         {% if messages %}
+                                                     {% for messages in messages %}
+                                                         <span style="color:lightpink; font-size:24pt;" >&nbsp;&nbsp;{{messages}}</span>
+                                                     {% endfor %}
+                                         {% endif %}
+                                     {% endwith %}
+                                   </a>
+
+                        </li>
+
+
+
+                        <li class="log_out">
+                                    <a href="/logout">
+                                         <i class='bx bx-log-out'></i>
+                                         <span class="links_name">Log out</span>
+                                    </a>
+                        </li>
+        </ul>
+    </div>
+    <section class="home-section">
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">IUL Complaints</span>
+
+
+
+                </div>
+
+                <div class="profile-details">
+                    <span class="admin_name">
+                        <b> {{current_user.name}} </b> </span>
+                </div>
+            </nav>
+
+
+         <div class="home-content" >
+
+             {% with messages = get_flashed_messages(category_filter=["complaint-success"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+             {% with messages = get_flashed_messages(category_filter=["complaint-edit"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+             {% with messages = get_flashed_messages(category_filter=["delete-success"]) %}
+                                         {% if messages %}
+                                            {% for messages in messages %}
+                                                        <center style="margin-left:10%; font-size:23px; margin-top:-2.5%; margin-bottom:0.5%; color:green;"> {{messages}} </center>
+                                            {% endfor %}
+                                         {% endif %}
+             {% endwith %}
+            {% for complaint in  complaints %}
+             {% if complaint.feedback == '𝘕𝘖 𝘙𝘌𝘚𝘗𝘖𝘕𝘚𝘌 𝘠𝘌𝘛 !' %}
+                <div class="col p-4 d-flex flex-column position-static" style="margin-left:18.5%;">
+                     <div class="overview-boxes" >
+                        <div class="box" style="width:650px; background-color: #C0C0C0;">
+                            <div class="right-side" >
+                                <div class="box-topic">
+                                    <center> <u>{{complaint.title}}</U>
+                                    </center>
+                                </div>
+                                 <br>
+                                  <div class="indicator">
+                                         <span class="text" style="font-size: 15px;">{{complaint.description}}</span>
+                                  </div>
+                                 <br>
+                                 <a href="/delete-complaint/{{complaint.id}}">  <button style="border-radius:50px; border-color:grey; background-color:#FF6666; color:#404040;float:right; padding:3px;"><b>DELETE</b></button></a>
+                                 <a href="/edit-complaint/{{complaint.id}}">   <button style="border-radius:50px; border-color:grey; background-color:#99CCFF; color:#404040; float:right; padding:3px; margin-right:5px;"><b>EDIT</b></button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             {% endif %}
+            {% endfor %}
+         </div>
+
+        <center>
+            <div id="footer">
+                <p style="color:black;">
+                                <b>Made By 1st Year Student For 1st Year Student <sub>(s)</sub></b>
+
+
+                </p>
+            </div>
+        </center>
+    </section>
+    {% else %}
+
+    <h1>You must login first</h1>
+    <a href="/student-login"><button style="color:black; background-color:lightblue; border:2px  solid black; margin-left: 25%;" >Student Log In</button></a>
+    <a href="/teacher-login"><button style="color:black; background-color:lightblue; border:2px  solid black; margin-left: 25%;" >Teacher Log In</button></a>
+
+{% endif %}
+
+
+
+
+
+
+</body>
+</html>
+

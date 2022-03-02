@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="static/staffstyle.css">
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="link1">
+        <a href="/staff-portal"> Go to Staff Portal </a>
+    </div>
+     <div class="link2">
+        <a href="/logout"> Logout </a>
+     </div>
+
+</nav>
+    <div class="form1">
+        <div class="image1">  <img src="static/iul-logo.png" alt="iul-logo"> </div>
+        <form method="POST">
+            <div class="details">
+                <div class="name">
+                    <input type="text" id="student_name" placeholder="Student Name*" name="name" required>
+                </div>
+                    <input type="text" id="student_id" placeholder="Student Enrollment Id*" name="enrollment_id" required>
+                <div class="teacher-enrollment">
+                    <input type="text" id="teacher_id" placeholder="Teacher Enrollment Id*" name="teacher-id" required>
+                </div>
+                <div class="teacher-name">
+                    <input type="text" id="teacher_name" placeholder="Teacher Name*" name="teacher-name" required>
+                </div>
+            </div>
+            <input type="submit" class="submit" value="Assign">
+        </form>
+    </div>
+</body>
+</html>

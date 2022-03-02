@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notice</title>
+</head>
+<body>
+<a href="/student-dashboard" style="text-decoration:none;">  <h1 style="float:left;">⮜</h1></a>
+    <center>
+        <h2 style="color:red; text-shadow: 1px 1px black; background-color:lightpink; margin-left:35%; margin-right:35%; border-radius:18px;" > Notice </h2>
+        <table border="7" cellspacing="5" cellpadding="4" style="background-image: linear-gradient(to right,#9adee3,#9adee3,#eeaeca,#eeaeca);font-size:13.5pt; width:60%;">
+            <tr style="background-color:#f5f256;">
+                <td > <b> S.No </b></td>
+                <td> <b> ABOUT </b> </td>
+                <td  align="center"> <b> DETAIL </b > </td>
+            </tr>
+            {% set count = namespace(value=1) %}
+            {% for notice in show_notice_for_students %}
+              <tr>
+                  <td  style="background-color:#969687 ; ">
+                      {{ count.value }}.
+                  </td>
+                  <td>
+                      {{ notice.title }}
+                  </td>
+                  <td colspan="2"  >
+                    {{ notice.description }}
+                  </td>
+              </tr>
+              {% set count.value = count.value + 1 %}
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

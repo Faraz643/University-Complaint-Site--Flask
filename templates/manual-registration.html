@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="static/staffstyle.css">
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="link1">
+        <a href="/student-registration-portal"> Go to Student Registration Portal </a>
+    </div>
+     <div class="link2">
+        <a href="/logout"> Logout </a>
+     </div>
+
+</nav>
+    <div class="form">
+        <div class="image">  <img src="static/iul-logo.png" alt="iul-logo"> </div>
+         <form method="POST">
+
+            <div class="detail-field">
+                <input type="text" id="stud_name" placeholder="Name*" name="name" required > &nbsp;&nbsp;&nbsp;
+                <input type="text" id="stud_id" placeholder="Enrollment Id*" name="enrollment_id" required>
+            </div>
+
+            <div class="pass-field">
+                <input type="text" id="stud_pass" placeholder="Password*" name="password"  required>
+
+            <div>
+                <div class="all-roles">
+                <input type="radio" id="Student" name="roletype" value="Student" required>
+                <label for="Student"> Student </label>
+                <input type="radio" id="Teacher" name="roletype" value="Teacher">
+                <label for="Teacher"> Teacher </label>
+                <input type="radio" id="Staff" name="roletype" value="Staff">
+                <label for="Staff"> Staff </label>
+            </div>
+            <input type="submit" class="button" value="Feed">
+         </form>
+    </div>
+</body>
+</html>
