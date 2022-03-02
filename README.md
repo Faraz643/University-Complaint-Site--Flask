@@ -1,4 +1,7 @@
-# University Complaint Website  -    https://iul-complaints.herokuapp.com/
+# University Complaint Website  
+
+https://iul-complaints.herokuapp.com/
+
 ## Introduction/Objective 
 University Complaint is a website for teachers and students of the same univeristy where students can write complaints regarding their ongoing academic sessions and classes
 and teachers can control, manage and give response(feedback) to students' complaints. 
