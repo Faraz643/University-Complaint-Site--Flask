@@ -3,9 +3,7 @@
 https://iul-complaints.herokuapp.com/
 
 ## Introduction/Objective 
-University Complaint is a website for teachers and students of the same univeristy where students can write complaints regarding their ongoing academic sessions and classes
-and teachers can control, manage and give response(feedback) to students' complaints. 
-The goal is to remove any barrier between a student and a teacher by which students can share their grievance to the teacher without any hesitation. 
+University Complaint is a website for teachers and students of the same university where students can write complaints regarding their ongoing academic sessions and classes and teachers can control, manage and give responses to students' complaints. The goal is to remove any barrier between a student and a teacher by which students can share their grievances with the teacher without any hesitation.
 
 ## Sections/Elements
 
