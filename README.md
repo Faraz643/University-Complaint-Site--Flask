@@ -67,7 +67,7 @@ Some key features of back-end:
 
 
 Interested in interacting with the GUI ?
-Give it a try - https://iul-complaints.herokuapp.com/
+Give it a try - [https://iul-complaints.herokuapp.com/](https://university-complaint-web-app.onrender.com/)
 
 
 As my main focus was on the back-end, I havn't applied my skills on front-end much. Some html and css templates 
